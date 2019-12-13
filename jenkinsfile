@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    stage(initialization){
+        step {
+            echo "Hello from initialization step"
+        }
+    }
+    stage(build) {
+        step {
+            echo "Hello from build step"
+        }
+    }
+}
