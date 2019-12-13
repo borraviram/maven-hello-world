@@ -1,15 +1,19 @@
 pipeline {
     agent any
     stages {
-    stage('initialization'){
-        steps {
-            echo "Hello from initialization step"
+        stage('initialization'){
+            steps {
+                echo "Hello from initialization step"
+            }
         }
-    }
-    stage('build') {
-        steps {
-            echo "Hello from build step"
+        stage('build') {
+            steps {
+                bat 'mvn clean package'
+            }
+            post {
+                echo 'Archiving the wer/jar'
+                archiveArtifacts artifacts : '**/*.war'
+            }
         }
-    }
     }
 }
