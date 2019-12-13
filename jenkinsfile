@@ -15,6 +15,7 @@ pipeline {
                     echo 'Archiving the wer/jar'
                     archiveArtifacts artifacts : '**/*.war'
                 }
+
             }
         }
     }
